@@ -6,6 +6,10 @@ const secsRef = document.querySelector('[data-value="secs"]');
 const targetDate = new Date(2020, 4, 9, 12, 0, 0, 0);
 
 const timer = () => {
+  const currentTime = Date.now();
+  const delta = targetDate.getTime() - currentTime;
+  updateTime(delta);
+
   setInterval(() => {
     const currentTime = Date.now();
     const delta = targetDate.getTime() - currentTime;
