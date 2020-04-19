@@ -6,15 +6,17 @@ const secsRef = document.querySelector('[data-value="secs"]');
 const targetDate = new Date(2020, 4, 9, 12, 0, 0, 0);
 
 const timer = () => {
-  const currentTime = Date.now();
-  const delta = targetDate.getTime() - currentTime;
-  updateTime(delta);
+  setTimer();
 
   setInterval(() => {
+    setTimer();
+  }, 1000);
+
+  function setTimer() {
     const currentTime = Date.now();
     const delta = targetDate.getTime() - currentTime;
     updateTime(delta);
-  }, 1000);
+  }
 
   function updateTime(time) {
     const days = pad(Math.floor(time / (1000 * 60 * 60 * 24)));
